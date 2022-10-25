@@ -1,0 +1,47 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(uuid())
+  name      String
+  email     String   @unique
+  password  String
+  active    Boolean  @default(true)
+  admin     Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updateAt  DateTime @default(now())
+
+  @@map("user")
+}
+
+model Category {
+  id        String    @id @default(uuid())
+  name      String    @unique
+  Courses   Courses[]
+  active    Boolean   @default(true)
+  createdAt DateTime  @default(now())
+  updateAt  DateTime  @default(now())
+
+  @@map("category")
+}
+
+model Courses {
+  id          String   @id @default(uuid())
+  name        String
+  Category    Category @relation(fields: [category_id], references: [id])
+  category_id String
+  active      Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updateAt    DateTime @default(now())
+
+  @@map("courses")
+}
