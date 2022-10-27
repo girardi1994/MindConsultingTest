@@ -39,6 +39,9 @@ model Courses {
   name        String
   Category    Category @relation(fields: [category_id], references: [id])
   category_id String
+  teacher     String
+  description String
+  image       String
   active      Boolean  @default(true)
   createdAt   DateTime @default(now())
   updateAt    DateTime @default(now())
