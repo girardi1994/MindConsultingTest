@@ -10,6 +10,7 @@ import { ListCategoryController } from "./modules/category/useCase/listCategory/
 //COURSES
 import { CreateCoursesController } from "./modules/courses/useCases/createCourses/CreateCoursesController";
 import { ListCoursesController } from "./modules/courses/useCases/listCourses/ListCoursesController";
+import { DeleteCoursesController } from "./modules/courses/useCases/deleteCourses/DeleteCoursesController";
 
 const routes = Router();
 
@@ -19,6 +20,7 @@ const createCategoryController = new CreateCategoryController();
 const listCategoryController = new ListCategoryController();
 const createCoursesController = new CreateCoursesController();
 const listCoursesController = new ListCoursesController();
+const deleteCoursesController = new DeleteCoursesController()
 
 //USER
 routes.post("/createUser/", createUserController.handle);
@@ -31,5 +33,6 @@ routes.get("/category/", listCategoryController.handle);
 //COURSES
 routes.post("/courses/", createCoursesController.handle);
 routes.get("/courses/", listCoursesController.handle);
+routes.delete("/courses/:id", deleteCoursesController.handle);
 
 export { routes };
