@@ -1,12 +1,15 @@
-import { Input } from 'style-components';
-import {
-  Container
-} from './styles';
+import React from "react";
+import { TextInput, TextInputProps } from "react-native";
+import { useTheme } from "styled-components/native";
 
-export function InputSignIn(){
-   return (
-     <Container>
+import { Container } from "./styles";
 
-     </Container>
-  );
+type Props = TextInputProps & {
+  inputRef? : React.RefObject<TextInput>
+}
+
+export function InputSignIN({ inputRef, ...rest }: Props) {
+  const { colors } = useTheme();
+
+  return <Container ref={inputRef} placeholderTextColor={colors.gray[200]} {...rest} />;
 }

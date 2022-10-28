@@ -5,8 +5,8 @@ flex: 1;
 justify-content: center;
 align-items: center;
 
-background-color: black;
+background-color: ${({theme})=> theme.colors.gray[700]};
 `;
 export const LoadIndicator = styled.ActivityIndicator.attrs(({theme})=>({
-  
+  color: theme.colors.gray[700]
 }))``;

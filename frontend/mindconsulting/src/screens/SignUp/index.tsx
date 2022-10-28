@@ -1,5 +1,6 @@
 import React from "react";
 import logoProfessor from "@assets/logoProfessor.png";
+import Professor from "@assets/Professor.png";
 import { InputSignIN } from "@components/Input";
 import { Button } from "@components/Button";
 import { ScrollView } from "react-native";
@@ -12,19 +13,21 @@ import {
   Text,
   ContainerText,
   ContainerButton,
-  Title,
+  ContainerImage,
+  Image,
 } from "./styles";
 
-
-export function SignIn() {
+export function SignUp() {
   const navigation = useNavigation<AuthNavigatorRoutesProps>();
 
-  function handleNewAccount(){
-    navigation.navigate("SignUp")
+  function handleBackSignIN(){
+    navigation.navigate("SignIn")
   }
 
   return (
-    <ScrollView contentContainerStyle={{flexGrow: 1}}>
+    <>
+
+    <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
       <Container>
         <ContainerLogo>
           <ImageLogo
@@ -35,21 +38,29 @@ export function SignIn() {
           />
         </ContainerLogo>
         <ContainerText>
-          <Text>Acesse sua conta</Text>
+          <Text>Crie sua conta</Text>
+          <InputSignIN placeholder="Nome" style={{ marginTop: 30 }} />
           <InputSignIN
             placeholder="E-mail"
             keyboardType="emai-address"
             autoCapitalize="none"
-            style={{ marginTop: 30 }}
           />
           <InputSignIN placeholder="Senha" secureTextEntry={true} />
         </ContainerText>
         <ContainerButton>
-          <Button title="Acessar" type="PRIMARY" />
-          <Title>Ainda não tem acesso?</Title>
-          <Button title="Criar conta" type="SECUNDARY" onPress={handleNewAccount}/>
+          <Button title="Criar e acessar" type="PRIMARY" />
+
+          <Button
+            title="Voltar para o login"
+            type="SECUNDARY"
+            style={{ marginTop: 20 }}
+            onPress={handleBackSignIN}
+          />
         </ContainerButton>
       </Container>
     </ScrollView>
-  );
+            <ContainerImage>
+            <Image source={Professor} />
+          </ContainerImage>
+          </>  );
 }
