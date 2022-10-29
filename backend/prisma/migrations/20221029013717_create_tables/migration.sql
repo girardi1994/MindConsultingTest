@@ -13,21 +13,10 @@ CREATE TABLE "user" (
 );
 
 -- CreateTable
-CREATE TABLE "category" (
-    "id" TEXT NOT NULL,
-    "name" TEXT NOT NULL,
-    "active" BOOLEAN NOT NULL DEFAULT true,
-    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "updateAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
-
-    CONSTRAINT "category_pkey" PRIMARY KEY ("id")
-);
-
--- CreateTable
 CREATE TABLE "courses" (
     "id" TEXT NOT NULL,
     "name" TEXT NOT NULL,
-    "category_id" TEXT NOT NULL,
+    "category" TEXT NOT NULL,
     "teacher" TEXT NOT NULL,
     "description" TEXT NOT NULL,
     "image" TEXT NOT NULL,
@@ -40,9 +29,3 @@ CREATE TABLE "courses" (
 
 -- CreateIndex
 CREATE UNIQUE INDEX "user_email_key" ON "user"("email");
-
--- CreateIndex
-CREATE UNIQUE INDEX "category_name_key" ON "category"("name");
-
--- AddForeignKey
-ALTER TABLE "courses" ADD CONSTRAINT "courses_category_id_fkey" FOREIGN KEY ("category_id") REFERENCES "category"("id") ON DELETE RESTRICT ON UPDATE CASCADE;

@@ -1,10 +1,13 @@
-import { NavigationContainer } from "@react-navigation/native"
-import {AuthRoutes}  from "./auth.routes"
+import { NavigationContainer } from "@react-navigation/native";
+import { useAuth } from "../Hooks/auth";
+import { AuthRoutes } from "./auth.routes";
+import { DashboardRoutes } from "./dashboard.routes";
 
-export function Routes(){
-  return(
+export function Routes() {
+  const { isLogged } = useAuth();
+  return (
     <NavigationContainer>
-      <AuthRoutes/>
+      {isLogged ? <DashboardRoutes /> : <AuthRoutes />}
     </NavigationContainer>
-  )
+  );
 }

@@ -2,6 +2,7 @@ import styled from "styled-components/native";
 
 export const Container = styled.View`
   flex: 1;
+  max-height: 70%;
   background-color: ${({ theme }) => theme.colors.gray[700]};
 `;
 export const ContainerLogo = styled.View`
@@ -34,12 +35,13 @@ export const ContainerButton = styled.View`
 `;
 export const ContainerImage = styled.View`
   width: 100%;
-  height: 50%;
-  position: absolute;
-  bottom: 0;
+  height: 30%;
+  align-items: center;
+  justify-content: center;
+  background-color: ${({ theme }) => theme.colors.gray[700]};
 `;
 
 export const Image = styled.Image`
-  width: 70%;
-  height: 35%;
+  width: 60%;
+  height: 100%;
 `;

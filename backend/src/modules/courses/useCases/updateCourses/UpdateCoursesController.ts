@@ -3,17 +3,18 @@ import { UpdateCoursesUseCase } from "./UpdateCoursesUseCase";
 
 export class UpdateCoursesController {
   async handle(request: Request, response: Response) {
-    const { name, categoryId, description, image, teacher, id, active } = request.body;
+    const { name, category, description, image, teacher, id, active } =
+      request.body;
 
     const updateCoursesUseCase = new UpdateCoursesUseCase();
     const result = await updateCoursesUseCase.execute({
       name,
-      categoryId,
       description,
       image,
       teacher,
       id,
-      active
+      active,
+      category,
     });
     return response.json(result);
   }
