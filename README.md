@@ -33,7 +33,7 @@ Faça um clone desse repositório
 
 1. A partir da raiz do projeto, entre na pasta rodando `cd frontend && cd mindconsulting`;
 2. Execulte `npm install` ou `yarn` para instalar as dependências;
-3. Para se conectar com o backend navegue ate a pasta `src > config` e substitua a variável base pelo seu endereço de IP ou localhost seguido da porta que esta rodando o backend. Ex: base = "http://meuip||localhost:3000/"
+3. Para se conectar com o backend navegue ate a pasta `src > config` e substitua a variável base pelo seu endereço de IP ou localhost seguido da porta que esta rodando o backend. Ex: base = "http://meuip || localhost:3000/"
 4. Abra o terminal e execute npx expo start para inciar o aplicativo mobile, leia o QRCode com o Aplicativo ExpoGO.  
 
 ## 👨‍💻 Desenvolvido
