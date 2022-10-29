@@ -26,7 +26,7 @@ Faça um clone desse repositório
 2. Execulte `npm install` ou `yarn` para instalar as dependências;
 3. Tenha um banco de dados local postgresSQL, crie na raiz do projeto um arquivo .env
 4. No arquivo .env adicione uma variavel e substitua pelos seus dados DATABASE_URL="postgresql://myuser:mypassword@localhost:5432/mydb?schema=public"
-5. Execute no terminal o seguinte comando para criar as migratiosn npx prisma migrate dev
+5. Execute no terminal o seguinte comando para criar as migrations npx prisma migrate dev
 6. Para iniciar o backend execute yarn dev
 
 ### Frontend
